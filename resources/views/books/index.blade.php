@@ -24,7 +24,7 @@
                 <th>
                     Publisher
                 </th>
-                <th></th>
+                <th class="Actions">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -35,7 +35,12 @@
                     <td>{{ $book->genre }}</td>
                     <td>{{ $book->publisher}}</td>
                     <td>
-
+                        <a
+                            href="{{ action('BookController@show', ['book' => $book->id]) }}"
+                            alt="View"
+                            title="View">
+                          View
+                        </a>
                     </td>
                 </tr>
             @endforeach
