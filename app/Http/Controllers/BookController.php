@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Book;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BookController extends Controller
 {
@@ -14,7 +15,12 @@ class BookController extends Controller
      */
     public function index()
     {
-        //
+        // $curr_user_id = auth()->user()->id;
+        // $books = DB::table('books')->get()->where('creator_id', $curr_user_id);
+
+        $books = DB::table('books')->get();
+        return view('books.index')
+            ->with('books', $books);
     }
 
     /**
