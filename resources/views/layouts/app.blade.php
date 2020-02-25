@@ -59,6 +59,12 @@
 		<main role="main">
 			<div class="container mt-5">
 				<div class="row">
+					<!-- Title -->
+					@yield('title')
+				</div>
+			</div>
+			<div class="container">
+				<div class="row">
 					<!-- Buttons -->
 					@yield('buttons')
 				</div>

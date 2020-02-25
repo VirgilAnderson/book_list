@@ -1,14 +1,17 @@
 @extends('layouts.app')
 
-@section('buttons')
-    <!-- <a class="btn btn-outline-primary btn-sm" href="{{ route('books.create') }}" role="button">Add New Book</a> -->
-@endsection
-
-@section('content')
+@section('title')
     <div>
         <h1>My Booklist</h1>
         <h2><small>Books I'd like to read</small></h2>
     </div>
+@endsection
+
+@section('buttons')
+    <a class="btn btn-outline-primary btn-sm" href="{{ route('books.create') }}" role="button">Add New Book</a>
+@endsection
+
+@section('content')
     <table class='table'>
         <thead>
             <tr>

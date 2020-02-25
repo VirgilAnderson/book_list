@@ -15,10 +15,9 @@ class BookController extends Controller
      */
     public function index()
     {
-        // $curr_user_id = auth()->user()->id;
-        // $books = DB::table('books')->get()->where('creator_id', $curr_user_id);
+        $curr_user_id = auth()->user()->id;
+        $books = DB::table('books')->get()->where('creator_id', $curr_user_id);
 
-        $books = DB::table('books')->get();
         return view('books.index')
             ->with('books', $books);
     }
@@ -30,7 +29,9 @@ class BookController extends Controller
      */
     public function create()
     {
-        //
+        $curr_user_id = auth()->user()->id;
+        return view('books.create')
+            ->with('curr_user_id', $curr_user_id);
     }
 
     /**
@@ -41,7 +42,17 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $id = DB::table('books')->insertGetId([
+            'title' => $request->input('title'),
+            'author' => $request->input('author'),
+            'pages' => $request->input('pages'),
+            'genre' => $request->input('genre'),
+            'publisher' => $request->input('publisher'),
+            'description' => $request->input('description'),
+            'creator_id' => $request->input('creator_id'),
+            'sort_order' => 1,
+        ]);
+        return redirect()->action('BookController@index');
     }
 
     /**

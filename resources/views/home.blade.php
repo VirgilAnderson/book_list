@@ -14,7 +14,10 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    <h1>Welcome Back</h1>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item"><a href="{{ route('books.index') }}">View Book List</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
