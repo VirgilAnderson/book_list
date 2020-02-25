@@ -16,7 +16,8 @@ class BookController extends Controller
     public function index()
     {
         $curr_user_id = auth()->user()->id;
-        $books = DB::table('books')->get()->where('creator_id', $curr_user_id);
+
+        $books = Book::where('creator_id', $curr_user_id)->paginate(10);
 
         return view('books.index')
             ->with('books', $books);
