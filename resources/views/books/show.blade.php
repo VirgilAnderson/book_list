@@ -10,6 +10,12 @@
     <a class="btn btn-outline-primary btn-sm" href="{{ route('books.index') }}" role="button">&laquo; Return to list</a>
 
     <a class="btn btn-outline-primary btn-sm" href="{{ action('BookController@edit', ['book' => $book->id]) }}" role="button">Edit</a>
+
+    <form action="{{ action('BookController@destroy', ['book' => $book->id]) }}" method="POST">
+        @method('DELETE')
+        @csrf
+        <button type="submit" class="btn btn-outline-primary btn-sm" title="Delete" value="Delete">Delete</button>
+    </form>
 @endsection
 
 @section('content')

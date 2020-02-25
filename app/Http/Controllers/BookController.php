@@ -113,6 +113,7 @@ class BookController extends Controller
      */
     public function destroy(Book $book)
     {
-        //
+        DB::table('books')->where('id', $book->id)->delete();
+        return redirect()->action('BookController@index');
     }
 }

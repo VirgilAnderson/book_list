@@ -24,9 +24,6 @@
                 <th>
                     Genre
                 </th>
-                <th>
-                    Publisher
-                </th>
                 <th class="Actions">Actions</th>
             </tr>
         </thead>
@@ -36,7 +33,6 @@
                     <td>{{ $book->title }}</td>
                     <td>{{ $book->author }}</td>
                     <td>{{ $book->genre }}</td>
-                    <td>{{ $book->publisher}}</td>
                     <td>
                         <a
                             href="{{ action('BookController@show', ['book' => $book->id]) }}"
@@ -51,6 +47,12 @@
                             title="edit">
                           Edit
                         </a>
+
+                        <form action="{{ action('BookController@destroy', ['book' => $book->id]) }}" method="POST">
+                            @method('DELETE')
+                            @csrf
+                            <button type="submit" class="btn btn-link" title="Delete" value="Delete">Delete</button>
+                        </form>
                     </td>
                 </tr>
             @endforeach
