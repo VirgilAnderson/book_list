@@ -44,6 +44,13 @@
                             title="View">
                           View
                         </a>
+
+                        <a
+                            href="{{ action('BookController@edit', ['book' => $book->id]) }}"
+                            alt="edit"
+                            title="edit">
+                          Edit
+                        </a>
                     </td>
                 </tr>
             @endforeach

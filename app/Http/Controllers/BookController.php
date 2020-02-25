@@ -75,7 +75,10 @@ class BookController extends Controller
      */
     public function edit(Book $book)
     {
-        //
+        $curr_user_id = auth()->user()->id;
+        return view('books.edit')
+            ->with('book', $book)
+            ->with('curr_user_id', $curr_user_id);
     }
 
     /**

@@ -8,6 +8,8 @@
 
 @section('buttons')
     <a class="btn btn-outline-primary btn-sm" href="{{ route('books.index') }}" role="button">&laquo; Return to list</a>
+
+    <a class="btn btn-outline-primary btn-sm" href="{{ action('BookController@edit', ['book' => $book->id]) }}" role="button">Edit</a>
 @endsection
 
 @section('content')
