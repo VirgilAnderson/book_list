@@ -90,7 +90,19 @@ class BookController extends Controller
      */
     public function update(Request $request, Book $book)
     {
-        //
+        DB::table('books')
+            ->where('id', $book->id)
+            ->update([
+            'title' => $request->input('title'),
+            'author' => $request->input('author'),
+            'pages' => $request->input('pages'),
+            'genre' => $request->input('genre'),
+            'publisher' => $request->input('publisher'),
+            'description' => $request->input('description'),
+            'creator_id' => $request->input('creator_id'),
+            'sort_order' => 1,
+        ]);
+        return redirect()->action('BookController@show', $book);
     }
 
     /**
