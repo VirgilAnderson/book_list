@@ -13,7 +13,7 @@
 
 @section('content')
     <table class='table'>
-        <thead>
+        <thead class="thead-light">
             <tr>
                 <th>
                     @if($sort == 'sort_order')
