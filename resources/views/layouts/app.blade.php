@@ -75,6 +75,12 @@
 					@yield('content')
 				</div>
 			</div>
+			<div class="container">
+				<div class="row btn-group mb-5">
+					<!-- Controls -->
+					@yield('controls')
+				</div>
+			</div>
 		</main>
 
 		<!-- FOOTER -->
