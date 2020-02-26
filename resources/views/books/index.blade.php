@@ -16,16 +16,16 @@
         <thead>
             <tr>
                 <th>
-                    @if($sort == 'order')
+                    @if($sort == 'sort_order')
                         @switch($dir)
                             @case('asc')
-                                <a href="{{ url('books/sorted/order/desc?page=') }}{{ $page }}">
+                                <a href="{{ url('books/sorted/sort_order/desc?page=') }}{{ $page }}">
                                     &#9650; Order
                                 </a>
                                 @break
 
                             @case('desc')
-                                <a href="{{ url('books/sorted/order/asc?page=') }}{{ $page }}">
+                                <a href="{{ url('books/sorted/sort_order/asc?page=') }}{{ $page }}">
                                     &#9660; Order
                                 </a>
                                 @break
@@ -34,7 +34,7 @@
                                 // Do nothing
                         @endswitch
                     @else
-                        <a href="{{ url('books/sorted/order/asc?page=') }}{{ $page }}">
+                        <a href="{{ url('books/sorted/sort_order/asc?page=') }}{{ $page }}">
                             Order
                         </a>
                     @endif
