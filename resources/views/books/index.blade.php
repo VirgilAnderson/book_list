@@ -120,13 +120,19 @@
         <tbody>
             @foreach($books as $book)
                 <tr>
-                    <td>{{ $book->sort_order }}</td>
+                    <td>
+                        <div class="btn-group-vertical">
+                          <button type="button" class="btn btn-outline-secondary btn-sm test"><small>&#9650;</small></button>
+                          <button type="button" class="btn btn-outline-secondary btn-sm test"><small>&#9660;</small></small></button>
+                        </div>
+
+                        {{ $book->sort_order }}</td>
                     <td>{{ $book->title }}</td>
                     <td>{{ $book->author }}</td>
                     <td>{{ $book->genre }}</td>
                     <td>
 
-                        <div class="btn-group btn-group-small ">
+                        <div class="btn-group btn-group-small">
                             <a class="btn btn-outline-primary btn-sm" href="{{ action('BookController@show', ['book' => $book->id]) }}" role="button">View</a>
                             <a class="btn btn-outline-primary btn-sm" href="{{ action('BookController@edit', ['book' => $book->id]) }}" role="button">Edit</a>
                             <a class="delete btn btn-outline-primary btn-sm" href="#" id="{{ $book->id }}" role="button">Delete</a>
