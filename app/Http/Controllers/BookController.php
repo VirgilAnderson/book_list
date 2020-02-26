@@ -13,7 +13,7 @@ class BookController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request, $sorted = null, $sort = 'sort_order', $dir = 'asc')
+    public function index(Request $request, $sorted = null, $sort = 'sort_order', $dir = 'desc')
     {
         $curr_user_id = auth()->user()->id;
         $columns = array('title', 'author', 'genre', 'sort_order');

@@ -15,13 +15,6 @@
 		<!-- Styles -->
 		<link href="{{ asset('css/app.css') }}" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="{{ asset('css/all.css') }}">
-
-		<style type="text/css">
-			button.test {
-				padding: 0px 3px;
-				font-size: 8px;
-			}
-		</style>
 	</head>
 	<body>
 		<header>

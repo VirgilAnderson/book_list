@@ -20,13 +20,13 @@
                         @switch($dir)
                             @case('asc')
                                 <a href="{{ url('books/sorted/sort_order/desc') }}{{ $page > 1 ? '?page='.$page : '' }}">
-                                    &#9650; Order
+                                    <small>&#9650;</small> Order
                                 </a>
                                 @break
 
                             @case('desc')
                                 <a href="{{ url('books/sorted/sort_order/asc') }}{{ $page > 1 ? '?page='.$page : '' }}">
-                                    &#9660; Order
+                                    <small>&#9660;</small> Order
                                 </a>
                                 @break
 
@@ -44,13 +44,13 @@
                         @switch($dir)
                             @case('asc')
                                 <a href="{{ url('books/sorted/title/desc') }}{{ $page > 1 ? '?page='.$page : '' }}">
-                                    &#9650; Title
+                                    <small>&#9650;</small> Title
                                 </a>
                                 @break
 
                             @case('desc')
                                 <a href="{{ url('books/sorted/title/asc') }}{{ $page > 1 ? '?page='.$page : '' }}">
-                                    &#9660; Title
+                                    <small>&#9660;</small> Title
                                 </a>
                                 @break
 
@@ -69,13 +69,13 @@
                         @switch($dir)
                             @case('asc')
                                 <a href="{{ url('books/sorted/author/desc') }}{{ $page > 1 ? '?page='.$page : '' }}">
-                                    &#9650; Author
+                                    <small>&#9650;</small> Author
                                 </a>
                                 @break
 
                             @case('desc')
                                 <a href="{{ url('books/sorted/author/asc') }}{{ $page > 1 ? '?page='.$page : '' }}">
-                                    &#9660; Author
+                                    <small>&#9660;</small> Author
                                 </a>
                                 @break
 
@@ -94,13 +94,13 @@
                         @switch($dir)
                             @case('asc')
                                 <a href="{{ url('books/sorted/genre/desc') }}{{ $page > 1 ? '?page='.$page : '' }}">
-                                    &#9650; Genre
+                                    <small>&#9650;</small> Genre
                                 </a>
                                 @break
 
                             @case('desc')
                                 <a href="{{ url('books/sorted/genre/asc') }}{{ $page > 1 ? '?page='.$page : '' }}">
-                                    &#9660; Genre
+                                    <small>&#9660;</small> Genre
                                 </a>
                                 @break
 
@@ -122,11 +122,10 @@
                 <tr>
                     <td>
                         <div class="btn-group-vertical">
-                          <button type="button" class="btn btn-outline-secondary btn-sm test"><small>&#9650;</small></button>
-                          <button type="button" class="btn btn-outline-secondary btn-sm test"><small>&#9660;</small></small></button>
+                          <button type="button" class="btn btn-outline-secondary btn-sm test"><small><small>&#9650;</small></small></button>
+                          <button type="button" class="btn btn-outline-secondary btn-sm test"><small><small>&#9660;</small></small></small></button>
                         </div>
-
-                        {{ $book->sort_order }}</td>
+                    </td>
                     <td>{{ $book->title }}</td>
                     <td>{{ $book->author }}</td>
                     <td>{{ $book->genre }}</td>
