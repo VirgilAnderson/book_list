@@ -11,10 +11,11 @@
 
     <a class="btn btn-outline-primary btn-sm" href="{{ action('BookController@edit', ['book' => $book->id]) }}" role="button">Edit</a>
 
-    <form action="{{ action('BookController@destroy', ['book' => $book->id]) }}" method="POST">
+    <a class="delete btn btn-outline-primary btn-sm" href="#" id="{{ $book->id }}" role="button">Delete</a>
+
+    <form name="{{ $book->id }}" action="{{ action('BookController@destroy', ['book' => $book->id]) }}" method="POST">
         @method('DELETE')
         @csrf
-        <button type="submit" class="btn btn-outline-primary btn-sm" title="Delete" value="Delete">Delete</button>
     </form>
 @endsection
 

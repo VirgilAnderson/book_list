@@ -34,24 +34,17 @@
                     <td>{{ $book->author }}</td>
                     <td>{{ $book->genre }}</td>
                     <td>
-                        <a
-                            href="{{ action('BookController@show', ['book' => $book->id]) }}"
-                            alt="View"
-                            title="View">
-                          View
-                        </a>
 
-                        <a
-                            href="{{ action('BookController@edit', ['book' => $book->id]) }}"
-                            alt="edit"
-                            title="edit">
-                          Edit
-                        </a>
+                        <div class="btn-group btn-group-small ">
+                            <a class="btn btn-outline-primary btn-sm" href="{{ action('BookController@show', ['book' => $book->id]) }}" role="button">View</a>
+                            <a class="btn btn-outline-primary btn-sm" href="{{ action('BookController@edit', ['book' => $book->id]) }}" role="button">Edit</a>
+                            <a class="delete btn btn-outline-primary btn-sm" href="#" id="{{ $book->id }}" role="button">Delete</a>
 
-                        <form action="{{ action('BookController@destroy', ['book' => $book->id]) }}" method="POST">
+                        </div>
+
+                        <form name="{{ $book->id }}" action="{{ action('BookController@destroy', ['book' => $book->id]) }}" method="POST">
                             @method('DELETE')
                             @csrf
-                            <button type="submit" class="btn btn-link" title="Delete" value="Delete">Delete</button>
                         </form>
                     </td>
                 </tr>
