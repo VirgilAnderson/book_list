@@ -16,6 +16,30 @@
         <thead>
             <tr>
                 <th>
+                    @if($sort == 'order')
+                        @switch($dir)
+                            @case('asc')
+                                <a href="{{ url('books/sorted/order/desc?page=') }}{{ $page }}">
+                                    &#9650; Order
+                                </a>
+                                @break
+
+                            @case('desc')
+                                <a href="{{ url('books/sorted/order/asc?page=') }}{{ $page }}">
+                                    &#9660; Order
+                                </a>
+                                @break
+
+                            @default
+                                // Do nothing
+                        @endswitch
+                    @else
+                        <a href="{{ url('books/sorted/order/asc?page=') }}{{ $page }}">
+                            Order
+                        </a>
+                    @endif
+                </th>
+                <th>
                     @if($sort == 'title')
                         @switch($dir)
                             @case('asc')
@@ -96,6 +120,7 @@
         <tbody>
             @foreach($books as $book)
                 <tr>
+                    <td>{{ $book->sort_order }}</td>
                     <td>{{ $book->title }}</td>
                     <td>{{ $book->author }}</td>
                     <td>{{ $book->genre }}</td>

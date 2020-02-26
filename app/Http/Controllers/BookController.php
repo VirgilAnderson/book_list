@@ -13,10 +13,10 @@ class BookController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request, $sorted = null, $sort = 'title', $dir = 'asc')
+    public function index(Request $request, $sorted = null, $sort = 'sort_order', $dir = 'asc')
     {
         $curr_user_id = auth()->user()->id;
-        $columns = array('title', 'author', 'genre');
+        $columns = array('title', 'author', 'genre', 'sort_order');
         if (isset($sort) && in_array($sort, $columns)) {
             $books = Book::where('creator_id', $curr_user_id)
                 ->orderBy($sort, $dir)
