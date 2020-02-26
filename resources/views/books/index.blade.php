@@ -16,13 +16,79 @@
         <thead>
             <tr>
                 <th>
-                    Title
+                    @if($sort == 'title')
+                        @switch($dir)
+                            @case('asc')
+                                <a href="{{ url('books/sorted/title/desc?page=') }}{{ $page }}">
+                                    &#9650; Title
+                                </a>
+                                @break
+
+                            @case('desc')
+                                <a href="{{ url('books/sorted/title/asc?page=') }}{{ $page }}">
+                                    &#9660; Title
+                                </a>
+                                @break
+
+                            @default
+                                // Do nothing
+                        @endswitch
+                    @else
+                        <a href="{{ url('books/sorted/title/asc?page=') }}{{ $page }}">
+                            Title
+                        </a>
+                    @endif
+
                 </th>
                 <th>
-                    Author
+                    @if($sort == 'author')
+                        @switch($dir)
+                            @case('asc')
+                                <a href="{{ url('books/sorted/author/desc?page=') }}{{ $page }}">
+                                    &#9650; Author
+                                </a>
+                                @break
+
+                            @case('desc')
+                                <a href="{{ url('books/sorted/author/asc?page=') }}{{ $page }}">
+                                    &#9660; Author
+                                </a>
+                                @break
+
+                            @default
+                                // Do nothing
+                        @endswitch
+                    @else
+                        <a href="{{ url('books/sorted/author/asc?page=') }}{{ $page }}">
+                            Author
+                        </a>
+                    @endif
+
                 </th>
                 <th>
-                    Genre
+                    @if($sort == 'genre')
+                        @switch($dir)
+                            @case('asc')
+                                <a href="{{ url('books/sorted/genre/desc?page=') }}{{ $page }}">
+                                    &#9650; Genre
+                                </a>
+                                @break
+
+                            @case('desc')
+                                <a href="{{ url('books/sorted/genre/asc?page=') }}{{ $page }}">
+                                    &#9660; Genre
+                                </a>
+                                @break
+
+                            @default
+                                // Do nothing
+                        @endswitch
+                    @else
+                        <a href="{{ url('books/sorted/genre/asc?page=') }}{{ $page }}">
+                            Genre
+                        </a>
+                    @endif
+
                 </th>
                 <th class="Actions">Actions</th>
             </tr>

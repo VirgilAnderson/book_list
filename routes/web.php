@@ -19,4 +19,5 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('books', 'BookController');
+Route::resource('books', 'BookController',['except' => ['index']]);
+Route::get('/books/{sorted?}/{sort?}/{dir?}', ['as' => 'books.index', 'uses' => 'BookController@index']);

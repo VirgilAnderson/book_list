@@ -13,14 +13,26 @@ class BookController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request, $sorted = null, $sort = 'title', $dir = 'asc')
     {
         $curr_user_id = auth()->user()->id;
+        $columns = array('title', 'author', 'genre');
+        if (isset($sort) && in_array($sort, $columns)) {
+            $books = Book::where('creator_id', $curr_user_id)
+                ->orderBy($sort, $dir)
+                ->paginate(10);
+        } else {
+            $books = Book::where('creator_id', $curr_user_id)
+                ->paginate(10);
+        }
 
-        $books = Book::where('creator_id', $curr_user_id)->paginate(10);
+        $page = $books->currentPage();
 
         return view('books.index')
-            ->with('books', $books);
+            ->with('books', $books)
+            ->with('sort', $sort)
+            ->with('dir', $dir)
+            ->with('page', $page);
     }
 
     /**
