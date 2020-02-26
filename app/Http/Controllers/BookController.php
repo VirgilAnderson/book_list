@@ -43,8 +43,10 @@ class BookController extends Controller
     public function create()
     {
         $curr_user_id = auth()->user()->id;
+        $book_count = Book::where('creator_id', $curr_user_id)->count();
         return view('books.create')
-            ->with('curr_user_id', $curr_user_id);
+            ->with('curr_user_id', $curr_user_id)
+            ->with('book_count', ++$book_count);
     }
 
     /**
@@ -55,16 +57,18 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        $id = DB::table('books')->insertGetId([
-            'title' => $request->input('title'),
-            'author' => $request->input('author'),
-            'pages' => $request->input('pages'),
-            'genre' => $request->input('genre'),
-            'publisher' => $request->input('publisher'),
-            'description' => $request->input('description'),
-            'creator_id' => $request->input('creator_id'),
-            'sort_order' => 1,
-        ]);
+        // $id = DB::table('books')->insertGetId([
+        //     'title' => $request->input('title'),
+        //     'author' => $request->input('author'),
+        //     'pages' => $request->input('pages'),
+        //     'genre' => $request->input('genre'),
+        //     'publisher' => $request->input('publisher'),
+        //     'description' => $request->input('description'),
+        //     'creator_id' => $request->input('creator_id'),
+        //     'sort_order' => 1,
+        // ]);
+
+        $id = Book::create($request->input());
         return redirect()->action('BookController@index');
     }
 
