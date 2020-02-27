@@ -1,5 +1,5 @@
 <input type="hidden" name="creator_id" value="{{ $curr_user_id }}"/>
-<input type="hidden" name="sort_order" value="{{ $book->sort_order ?? $book_count }}"/>
+<input type="hidden" name="sort_order" value="{{ $book->sort_order ?? $sort_order }}"/>
 
 <div class="form-group row">
     <label class="col-sm-2 col-form-label"for="title">Title</label>

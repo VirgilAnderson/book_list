@@ -43,10 +43,11 @@ class BookController extends Controller
     public function create()
     {
         $curr_user_id = auth()->user()->id;
-        $book_count = Book::where('creator_id', $curr_user_id)->count();
+        $max_sort = Book::where('creator_id', $curr_user_id)->max('sort_order');
+
         return view('books.create')
             ->with('curr_user_id', $curr_user_id)
-            ->with('book_count', ++$book_count);
+            ->with('sort_order', ++$max_sort);
     }
 
     /**
@@ -58,7 +59,7 @@ class BookController extends Controller
     public function store(Request $request)
     {
         $id = Book::create($request->input());
-        return redirect()->action('BookController@index');
+        return redirect()->action('BookController@show', $id);
     }
 
     /**
