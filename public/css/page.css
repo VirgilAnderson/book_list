@@ -1,8 +1,25 @@
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
 body {
     padding-top: 3rem;
     padding-bottom: 3rem;
     color: #5a5a5a;
     background-color: #f0f5f5;
+}
+
+main {
+    background-image: url("../images/books.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+section {
+    padding: 5%;
 }
 
 button.controls {

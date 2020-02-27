@@ -63,7 +63,7 @@
 		</header>
 
 		<main role="main">
-			<div class="container mt-5">
+			<div class="container">
 				<div class="row">
 					<!-- Title -->
 					@yield('title')

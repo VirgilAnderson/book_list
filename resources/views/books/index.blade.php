@@ -1,18 +1,18 @@
 @extends('layouts.app')
 
 @section('title')
-    <div>
+    <div class="text-white mt-5">
         <h1>My Booklist</h1>
         <h2><small>Books I'd like to read</small></h2>
     </div>
 @endsection
 
 @section('buttons')
-    <a class="btn btn-outline-primary btn-sm" href="{{ route('books.create') }}" role="button">Add New Book</a>
+    <a class="btn btn-primary btn-sm" href="{{ route('books.create') }}" role="button">Add New Book</a>
 @endsection
 
 @section('content')
-    <table class='table'>
+    <table class='table table-light table-striped'>
         <thead class="thead-light">
             <tr>
                 <th>

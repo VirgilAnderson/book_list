@@ -20,10 +20,10 @@ class BookController extends Controller
         if (isset($sort) && in_array($sort, $columns)) {
             $books = Book::where('creator_id', $curr_user_id)
                 ->orderBy($sort, $dir)
-                ->paginate(10);
+                ->paginate(5);
         } else {
             $books = Book::where('creator_id', $curr_user_id)
-                ->paginate(10);
+                ->paginate(5);
         }
 
         $page = $books->currentPage();
