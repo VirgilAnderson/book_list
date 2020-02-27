@@ -113,7 +113,7 @@ class BookController extends Controller
         return redirect()->action('BookController@index');
     }
 
-    public function swap(Request $request, $id_1, $id_2)
+    public function swap(Request $request)
     {
         $curr_user_id = auth()->user()->id;
 
@@ -121,16 +121,16 @@ class BookController extends Controller
             ->where([
                     ['creator_id', '=', $curr_user_id]
                 ])
-            ->whereIn('id', [$id_1, $id_2])
+            ->whereIn('id', [$request->input()["id_1"], $request->input()["id_2"]])
             ->pluck('sort_order', 'id');
 
         DB::table('books')
-            ->where('id', $id_1)
-            ->update(['sort_order' => $sort[$id_2]]);
+            ->where('id', $request->input()["id_1"])
+            ->update(['sort_order' => $sort[$request->input()["id_2"]]]);
 
         DB::table('books')
-            ->where('id', $id_2)
-            ->update(['sort_order' => $sort[$id_1]]);
+            ->where('id', $request->input()["id_2"])
+            ->update(['sort_order' => $sort[$request->input()["id_1"]]]);
 
         return redirect()->action('BookController@index');
     }

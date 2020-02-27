@@ -119,12 +119,18 @@
         </thead>
         <tbody>
             @foreach($books as $book)
-                <tr>
+                <tr id="{{ $book->id }}">
                     <td>
                         <div class="btn-group-vertical">
-                          <button type="button" class="btn btn-outline-secondary btn-sm test"><small><small>&#9650;</small></small></button>
-                          <button type="button" class="btn btn-outline-secondary btn-sm test"><small><small>&#9660;</small></small></small></button>
+                            <button type="button" class="btn btn-outline-secondary btn-sm controls up"><small>&#9650;</small></button>
+                            <button type="button" class="btn btn-outline-secondary btn-sm controls down"><small>&#9660;</small></button>
                         </div>
+                        <form name="swap_{{ $book->id }}" action="{{ action('BookController@swap') }}" method="GET">
+
+                            <input type="hidden" name="id_1" value="{{ $book->id }}">
+                            <input id="input_{{ $book->id }}"type="hidden" name="id_2">
+                            @csrf
+                        </form>
                     </td>
                     <td>{{ $book->title }}</td>
                     <td>{{ $book->author }}</td>
