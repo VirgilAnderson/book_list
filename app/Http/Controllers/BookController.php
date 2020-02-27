@@ -112,4 +112,26 @@ class BookController extends Controller
         DB::table('books')->where('id', $book->id)->delete();
         return redirect()->action('BookController@index');
     }
+
+    public function swap(Request $request, $id_1, $id_2)
+    {
+        $curr_user_id = auth()->user()->id;
+
+        $sort = Book::select('sort_order', 'id')
+            ->where([
+                    ['creator_id', '=', $curr_user_id]
+                ])
+            ->whereIn('id', [$id_1, $id_2])
+            ->pluck('sort_order', 'id');
+
+        DB::table('books')
+            ->where('id', $id_1)
+            ->update(['sort_order' => $sort[$id_2]]);
+
+        DB::table('books')
+            ->where('id', $id_2)
+            ->update(['sort_order' => $sort[$id_1]]);
+
+        return redirect()->action('BookController@index');
+    }
 }
