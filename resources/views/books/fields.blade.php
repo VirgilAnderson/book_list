@@ -1,3 +1,10 @@
+@if ($errors->any())
+    @foreach($errors->all() as $error)
+        <p class="alert alert-danger">
+            {{ $error }}
+        </p>
+    @endforeach
+@endif
 <input type="hidden" name="creator_id" value="{{ $curr_user_id }}"/>
 <input type="hidden" name="sort_order" value="{{ $book->sort_order ?? $sort_order }}"/>
 

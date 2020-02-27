@@ -97,7 +97,18 @@ class BookController extends Controller
      */
     public function update(Request $request, Book $book)
     {
-        $book->fill($request->input());
+        $validatedData = $request->validate([
+            'title' => 'required',
+            'author' => 'present',
+            'pages' => 'present',
+            'genre' => 'present',
+            'publisher' => 'present',
+            'description' => 'present',
+            'creator_id' => 'required|exists:users,id',
+            'sort_order' => 'required',
+        ]);
+
+        $book->fill($validatedData);
         $book->save();
         return redirect()->action('BookController@show', $book);
     }
