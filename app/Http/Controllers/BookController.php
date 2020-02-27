@@ -58,7 +58,18 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        $id = Book::create($request->input());
+        $validatedData = $request->validate([
+            'title' => 'required',
+            'author' => 'present',
+            'pages' => 'present',
+            'genre' => 'present',
+            'publisher' => 'present',
+            'description' => 'present',
+            'creator_id' => 'required|exists:users,id',
+            'sort_order' => 'required',
+        ]);
+
+        $id = Book::create($validatedData);
         return redirect()->action('BookController@show', $id);
     }
 
