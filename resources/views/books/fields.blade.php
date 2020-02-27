@@ -11,42 +11,42 @@
 <div class="form-group row">
     <label class="col-sm-2 col-form-label"for="title">Title</label>
     <div class="col-sm-10">
-        <input name="title" type="text" class="form-control" placeholder="Book Title" value="{{ $book->title ?? ''}}"/>
+        <input name="title" type="text" class="form-control" placeholder="Book Title" value="{{ old('title') ?? $book->title ?? ''}}"/>
     </div>
 </div>
 
 <div class="form-group row">
     <label class="col-sm-2 col-form-label"for="author">Author</label>
     <div class="col-sm-10">
-        <input name="author" type="text" class="form-control" placeholder="Book Author" value="{{ $book->author ?? ''}}"/>
+        <input name="author" type="text" class="form-control" placeholder="Book Author" value="{{ old('author') ?? $book->author ?? ''}}"/>
     </div>
 </div>
 
 <div class="form-group row">
     <label class="col-sm-2 col-form-label"for="pages">Pages</label>
     <div class="col-sm-10">
-        <input name="pages" type="text" class="form-control" placeholder="Number of pages" value="{{ $book->pages ?? ''}}"/>
+        <input name="pages" type="text" class="form-control" placeholder="Number of pages" value="{{ old('pages') ?? $book->pages ?? ''}}"/>
     </div>
 </div>
 
 <div class="form-group row">
     <label class="col-sm-2 col-form-label"for="genre">Genre</label>
     <div class="col-sm-10">
-        <input name="genre" type="text" class="form-control" placeholder="Book Genre" value="{{ $book->genre ?? ''}}"/>
+        <input name="genre" type="text" class="form-control" placeholder="Book Genre" value="{{ old('genre') ?? $book->genre ?? ''}}"/>
     </div>
 </div>
 
 <div class="form-group row">
     <label class="col-sm-2 col-form-label"for="publisher">Publisher</label>
     <div class="col-sm-10">
-        <input name="publisher" type="text" class="form-control" placeholder="Book publisher" value="{{ $book->publisher ?? ''}}"/>
+        <input name="publisher" type="text" class="form-control" placeholder="Book publisher" value="{{ old('publisher') ?? $book->publisher ?? ''}}"/>
     </div>
 </div>
 
 <div class="form-group row">
     <label class="col-sm-2 col-form-label"for="description">Description</label>
     <div class="col-sm-10">
-        <textarea name="description" class="form-control" placeholder="Book Description">{{ $book->description ?? ''}}</textarea>
+        <textarea name="description" class="form-control" placeholder="Book Description">{{ old('description') ?? $book->description ?? ''}}</textarea>
     </div>
 </div>
 
